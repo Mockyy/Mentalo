@@ -10,6 +10,7 @@ public class PlayerStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instantiate(player);
         player.transform.SetPositionAndRotation(transform.position, Quaternion.identity);    
     }
 }

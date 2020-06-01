@@ -10,7 +10,9 @@ public class QuestManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform == objectNeeded)
+        print("Bonjour");
+
+        if (other.transform.name == objectNeeded.name)
         {
             print("Quest");
             Destroy(other);
