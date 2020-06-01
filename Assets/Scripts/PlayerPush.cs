@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPush : MonoBehaviour 
+public class PlayerPush : ClosestItem 
 {
     [SerializeField]
     //private bool isPushing = false;
 
-    private GameObject[] objectsCanBePushed;
+    private GameObject pushObject;
 
 
     private void Update()
@@ -17,29 +17,34 @@ public class PlayerPush : MonoBehaviour
 
     private void ScanPushableObjects()
     {
-        objectsCanBePushed = GameObject.FindGameObjectsWithTag("Pushable");
+        pushObject = GetClosestItem();
 
-        foreach (GameObject objectPushed in objectsCanBePushed)
+        if (pushObject != null)
         {
-            if (Vector3.Distance(transform.position, objectPushed.transform.position) < 3f)
-            {
-                Debug.DrawLine(transform.position, objectPushed.transform.position, Color.cyan);
+            float distanceToPushObject = Vector3.Distance(transform.position, pushObject.transform.position);
 
-                if (Input.GetButtonDown("Interact"))
+            if (distanceToPushObject < 3f)
+            {
+                float newDistance = distanceToPushObject;
+
+                Debug.DrawLine(transform.position, pushObject.transform.position, Color.cyan);
+
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.forward, out hit, newDistance) && Input.GetButtonDown("Interact"))
                 {
-                    Push(objectPushed);
-                    
+                    Vector3 newDirection = -hit.normal;
+                    Push(pushObject, newDirection);
                 }
             }
         }
+
+        
     }
 
-    private void Push(GameObject objectPushed)
+    private void Push(GameObject objectPushed, Vector3 direction)
     {
         //objectPushed.GetComponent<Rigidbody>().AddForce(transform.forward * 2);
         //objectPushed.GetComponent<Rigidbody>().velocity = transform.forward * 10;
         objectPushed.transform.Translate(transform.forward * 2f);
-
-        print("Push");
     }
 }

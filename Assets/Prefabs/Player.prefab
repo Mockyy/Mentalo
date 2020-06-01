@@ -173,7 +173,6 @@ GameObject:
   - component: {fileID: 6128872508803551170}
   - component: {fileID: 5135678891368303227}
   - component: {fileID: 5176033339811320146}
-  - component: {fileID: 7587685659992931156}
   - component: {fileID: 8970042936628143008}
   - component: {fileID: 5956139875959553829}
   m_Layer: 0
@@ -191,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4321279930716366265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 53.83359, y: 0.68, z: -315.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1673916590419582041}
@@ -248,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: {fileID: 0}
+  canMove: 0
   jumpForce: 2
   gravity: 50
   maxJump: 10
@@ -265,7 +265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9cd0e854e14b9449e6ce0cbaee93af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsCanBePushed: []
+  wantedTag: Pushable
+  distance: 5
+  showLines: 0
+  pushObject: {fileID: 0}
 --- !u!114 &5135678891368303227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,20 +301,6 @@ MonoBehaviour:
   tongueTransform: {fileID: 3807019389925744614}
   range: 5
   soundLangue: {fileID: 5985228241470587466}
---- !u!114 &7587685659992931156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4321279930716366265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f99ecc68293524428d7c68250a919ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 0}
-  dialogue: {fileID: 0}
 --- !u!198 &8970042936628143008
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5043,6 +5032,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5409,6 +5399,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5629,6 +5620,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5785,6 +5777,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5972,6 +5965,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

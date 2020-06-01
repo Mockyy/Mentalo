@@ -23,7 +23,7 @@ public class PlayerPickUp : ClosestItem
     {
         GameObject closestObject = GetClosestItem();
 
-        if (Vector3.Distance(handsTransform.position, closestObject.transform.position) < 2f)
+        if (closestObject != null && Vector3.Distance(handsTransform.position, closestObject.transform.position) < 2f)
         {
             if (showLines)
             {

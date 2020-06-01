@@ -8,45 +8,46 @@ public class PlayerMovement : MonoBehaviour
     [Header("State")]
     public PlayerState state;
 
+    [SerializeField]
+    public bool canMove;    //Si le joueur peut se déplacer
+
     [Header("Jump settings")]
     [SerializeField]
-    private float jumpForce = 5f;
+    private float jumpForce = 5f;   //Force du saut par défaut
     [SerializeField]
-    private float gravity = -9.81f;
+    private float gravity = -9.81f; //Gravité
     [Tooltip("Max height of the jump")]
     [SerializeField]
-    private float maxJump = 10f;
-    private bool isGrounded;
-    private float jumpHeight;
+    private float maxJump = 10f;    //Hauteur max du saut
+    private bool isGrounded;    //Si le joueur est au sol
+    private float jumpHeight;   //Force du saut calculé
 
 
     [Header("Movement settings")]
     [SerializeField]
-    private float speed = 10f;
+    private float speed = 10f;  //Vitesse   
 
-    private Vector3 velocity;
-    protected float horizontal;
-    protected float vertical;
+    private Vector3 velocity;   //Velocité
+    protected float horizontal; //Direction horizontale
+    protected float vertical;   //Direction verticale
     protected Vector3 direction;
 
     [Header("Sounds settings")]
     [SerializeField]
-    private GameObject soundJump;
+    private GameObject soundJump;   //Son de saut
 
-    protected CharacterController cc;
-
-    private float turnSmoothVelocity;
+    protected CharacterController cc;  
 
     //Animation variables
-    private Animator animator;
+    private Animator animator;  //Animation
 
     //Camera variables
-    private Transform cam;
+    private Transform cam;  //Camera
 
-    private PlayerPush PlayerPush;
-    protected bool isPushing;
+    private PlayerPush PlayerPush;  //Script de poussée
+    protected bool isPushing;   //Si le joueur est en train de pousser quelque chose
 
-    private ParticleSystem dust;
+    private ParticleSystem dust;    //Particules d'attérissage
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         dust = GetComponent<ParticleSystem>();
         state = GetComponent<PlayerState>();
 
+        canMove = true;
         jumpHeight = jumpForce;
     }
 
@@ -77,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
 
             //Quand le joueur appuie sur la touche de saut
-            if (Input.GetButton("Jump"))
+            if (Input.GetButton("Jump") && canMove)
             {
                 state.actualState = PlayerState.state.jumping;
                 //On incrémente la hauteur du saut tant qu'il maintient
@@ -90,9 +92,9 @@ public class PlayerMovement : MonoBehaviour
                     jumpHeight = maxJump;
                 }
             }
-            
+
             //Quand on relache la touche de saut
-            if (Input.GetButtonUp("Jump"))
+            if (Input.GetButtonUp("Jump") && canMove)
             {
                 //Joue le son de saut
                 soundJump.GetComponent<AudioSource>().Play();
@@ -110,8 +112,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Inputs de mouvement
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        if (canMove)
+        {
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
+        }
+        else
+        {
+            horizontal = 0;
+            vertical = 0;
+        }
 
         //On multiplie la direction par la vitesse
         direction = new Vector3(horizontal, 0.0f, vertical);

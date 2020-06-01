@@ -5,15 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ObjectPushable : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject feedback;
-
-    [HideInInspector]
-    public bool isPushable;
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        isPushable = false;
+        print("lul");
+        if (collision.transform.tag == "Player")
+        {
+            print("lol");
+            RaycastHit hit;
+            Physics.Raycast(collision.transform.position, transform.position, out hit);
+
+            transform.Translate(-hit.normal);
+        }
     }
 }

@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour
 {
     private const float Y_MIN_ANGLE = 5.0f;
     private const float Y_MAX_ANGLE = 50.0f;
-
+   
     [Tooltip("Target the camera will look at")]
     [SerializeField] public Transform target = null;
 

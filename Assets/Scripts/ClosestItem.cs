@@ -16,8 +16,7 @@ public class ClosestItem : MonoBehaviour
     [Tooltip("Debugging : show the lines between all the objects")]
     [SerializeField]
     protected bool showLines = false;
-
-
+    
     protected GameObject GetClosestItem()
     {
         GameObject[] objectsCanBePickedUp;
