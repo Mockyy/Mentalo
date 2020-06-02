@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]    
     private TextMeshProUGUI sentenceText; 
 
-    private Queue<string> sentences;    //Les phrases à afficher
+    public Queue<string> sentences;    //Les phrases à afficher
 
     [Tooltip("L'animation de la boite de dialogue")]
     [SerializeField]
