@@ -1360,10 +1360,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1518188231730447712, guid: 8f00cfecc67ab7d40bcf7606de91ad3e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518188231730447712, guid: 8f00cfecc67ab7d40bcf7606de91ad3e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1518188231730447715, guid: 8f00cfecc67ab7d40bcf7606de91ad3e,
         type: 3}
       propertyPath: m_Name
       value: Pushable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518188231730447725, guid: 8f00cfecc67ab7d40bcf7606de91ad3e,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1518188231730447726, guid: 8f00cfecc67ab7d40bcf7606de91ad3e,
         type: 3}

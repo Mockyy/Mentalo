@@ -7,7 +7,6 @@ public class ObjectPushable : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        print("lul");
         if (collision.transform.tag == "Player")
         {
             print("lol");

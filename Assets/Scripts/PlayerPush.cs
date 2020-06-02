@@ -33,7 +33,15 @@ public class PlayerPush : ClosestItem
                 if (Physics.Raycast(transform.position, transform.forward, out hit, newDistance) && Input.GetButtonDown("Interact"))
                 {
                     Vector3 newDirection = -hit.normal;
-                    Push(pushObject, newDirection);
+
+                    if (!Physics.Raycast(pushObject.transform.position, newDirection, 4f))
+                    {
+                        Push(pushObject, newDirection);
+                    }
+                    else
+                    {
+                        pushObject.GetComponent<AudioSource>().Play();
+                    }
                 }
             }
         }
