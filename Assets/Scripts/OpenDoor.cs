@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    [SerializeField] QuestManager quest;
+    [SerializeField] DialogueTrigger quest;
 
     // Update is called once per frame
     void Update()
     {
-        if (quest.isCompleted)
+        if (quest.questIsCompleted)
         {
             Destroy(gameObject);
         }

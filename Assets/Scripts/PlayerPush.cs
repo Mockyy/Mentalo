@@ -45,14 +45,10 @@ public class PlayerPush : ClosestItem
                 }
             }
         }
-
-        
     }
 
     private void Push(GameObject objectPushed, Vector3 direction)
     {
-        //objectPushed.GetComponent<Rigidbody>().AddForce(transform.forward * 2);
-        //objectPushed.GetComponent<Rigidbody>().velocity = transform.forward * 10;
         objectPushed.transform.Translate(transform.forward * 2f);
     }
 }
