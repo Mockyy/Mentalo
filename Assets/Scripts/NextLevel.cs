@@ -7,7 +7,7 @@ public class NextLevel : MonoBehaviour
 {
     [SerializeField] private string sceneName;
 
-    private void onTriggerEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         print("Next");
         SceneManager.LoadScene(sceneName);

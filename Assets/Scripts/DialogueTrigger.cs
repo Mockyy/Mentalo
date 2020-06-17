@@ -6,7 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     [Tooltip("Le scriptableObject contenant le dialogue")]
     [SerializeField]
-    private DialogueText dialogue;
+    private DialogueText[] dialogue;
 
     [Tooltip("Si le dialogue se lance en entrant dans le trigger ou si il faut appuyer sur la touche de dialogue")]
     [SerializeField]
@@ -46,7 +46,7 @@ public class DialogueTrigger : MonoBehaviour
             }
             else if (Input.GetButtonDown("Talk"))
             {
-                if (dialogueManager.sentences.Count == 0)
+                if (dialogueManager.dialogues.Count == 0 && dialogueManager.sentences.Count == 0)
                 {
                     wasTriggeredOnce = true;
                 }
