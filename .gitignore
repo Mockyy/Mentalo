@@ -10,8 +10,7 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
-/[Aa]ssets/Standard Assets/
-/[Aa]ssets/ExampleAssets/
+
 /[Aa]ssets/Animations/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
