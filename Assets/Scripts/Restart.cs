@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatRestart : MonoBehaviour
+public class Restart : MonoBehaviour
 {
     [SerializeField] private Transform restart;
 
@@ -11,7 +11,8 @@ public class CatRestart : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
             Debug.Log("Restart");
-            other.transform.SetPositionAndRotation(restart.position, Quaternion.identity);
+
+            other.transform.position = restart.position;
         }
     }
 }

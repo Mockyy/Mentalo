@@ -11,12 +11,26 @@ public class GuardEvent : MonoBehaviour
     [SerializeField] private GameObject horse1;
     [SerializeField] private GameObject horse2;
     [SerializeField] private GameObject guardBlock;
+    [SerializeField] private GameObject guardDialolgue;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("Player"))
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.CompareTag("Player"))
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
 
     private void OnTriggerStay(Collider other)
-    {
-        print("lol");
-        
+    {      
         if (other.gameObject.tag == "Player" && Input.GetButtonDown("Interact"))
         {
             stableDoor1.rotation = Quaternion.Euler(0, 180, 0);
@@ -26,6 +40,7 @@ public class GuardEvent : MonoBehaviour
             Destroy(guard1, 2f);
             Destroy(guard2, 2f);
             Destroy(guardBlock, 2f);
+            Destroy(guardDialolgue, 2f);
         }
     }
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class CatEvent : MonoBehaviour
 {
 
-    [SerializeField] private Transform chat;
-    [SerializeField] private Transform block;
+    [SerializeField] private GameObject chat;
+    [SerializeField] private GameObject block;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,11 +26,12 @@ public class CatEvent : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag == "Player" && Input.GetButtonDown("Interact"))
+        if (other.transform.tag == "Player" && Input.GetButtonDown("Interact"))
         {
             gameObject.transform.Translate(new Vector3(3, 0));
             Destroy(chat, 1f);
             Destroy(block, 2f);
+            GetComponent<AudioSource>().Play(44100);
         }
     }
 }
