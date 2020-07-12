@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a98c28f1e0fe2a4d96177e8a6a3821b, type: 3}
-  m_Name: fin
+  m_Name: Chest
   m_EditorClassIdentifier: 
   name: Mentalo
   sentences:
-  - "Vous \xEAtes \xE0 la fin du prototype"
-  - alt f4 pour quitter
+  - "Ce que je cherche doit \xEAtre dans ce coffre.\t"
+  - "Mais il est ferm\xE9. Je dois trouver la cl\xE9."

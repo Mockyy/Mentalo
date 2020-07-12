@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Niveau1_Interieur.unity
     guid: 5e141b34ab7ca4c4093bc70e822c2bd6
+  - enabled: 1
+    path: Assets/Scenes/Niveau1_Lab.unity
+    guid: 5661f3e60aa60814b8617b9d0c7490b5
+  - enabled: 1
+    path: Assets/Scenes/Niveau1_Final.unity
+    guid: 6abdcab18fea9e4499c8ae516a1bc9a3
   m_configObjects: {}
