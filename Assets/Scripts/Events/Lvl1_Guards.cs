@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardEvent : MonoBehaviour
+//Gère l'event des gardes du niveau 1
+public class Lvl1_Guards : MonoBehaviour
 {
-    [SerializeField] private GameObject guard1;
-    [SerializeField] private GameObject guard2;
-    [SerializeField] private Transform stableDoor1;
-    [SerializeField] private Transform stableDoor2;
-    [SerializeField] private GameObject horse1;
-    [SerializeField] private GameObject horse2;
-    [SerializeField] private GameObject guardBlock;
-    [SerializeField] private GameObject guardDialolgue;
+    //Tout les objets à faire disparaitre
+    [SerializeField] private GameObject guard1 = default;
+    [SerializeField] private GameObject guard2 = default;
+    [SerializeField] private Transform stableDoor1 = default;
+    [SerializeField] private Transform stableDoor2 = default;
+    [SerializeField] private GameObject horse1 = default;
+    [SerializeField] private GameObject horse2 = default;
+    [SerializeField] private GameObject guardBlock = default;
+    [SerializeField] private GameObject guardDialolgue = default;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,11 +33,15 @@ public class GuardEvent : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {      
+        //Si on appuie sur la touche d'interaction
         if (other.gameObject.tag == "Player" && Input.GetButtonDown("Interact"))
         {
+            //On rotate des portes pour les ouvrir
             stableDoor1.rotation = Quaternion.Euler(0, 180, 0);
             stableDoor2.rotation = Quaternion.Euler(0, 180, 0);
-            Destroy(horse1, 2f);
+            
+            //On détruit tout les autres objets
+            Destroy(horse1, 2f);                                
             Destroy(horse2, 2f);
             Destroy(guard1, 2f);
             Destroy(guard2, 2f);

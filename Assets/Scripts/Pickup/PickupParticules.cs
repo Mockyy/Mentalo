@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Génère les particules pour les objets ramassables
 public class PickupParticules : MonoBehaviour
 {
     private Rigidbody rb;

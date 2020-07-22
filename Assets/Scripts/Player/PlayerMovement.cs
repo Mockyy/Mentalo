@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Sounds settings")]
     [SerializeField]
-    private GameObject soundJump;   //Son de saut
+    private GameObject soundJump = default;   //Son de saut
 
     protected CharacterController cc;  
 

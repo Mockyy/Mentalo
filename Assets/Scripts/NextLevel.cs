@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Charge la nouvelle scène
 public class NextLevel : MonoBehaviour
 {
-    [SerializeField] private string sceneName;
+    [Tooltip("Le nom de la scène à charger. Penser à ajouter la scène choisie dans les builds settings")]
+    [SerializeField] private string sceneName = default;
 
     private void OnTriggerEnter(Collider other)
     {

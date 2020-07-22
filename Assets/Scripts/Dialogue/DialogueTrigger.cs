@@ -6,11 +6,11 @@ public class DialogueTrigger : MonoBehaviour
 {
     [Tooltip("Le scriptableObject contenant le dialogue")]
     [SerializeField]
-    private DialogueText[] dialogue;
+    private DialogueText[] dialogue = default;
 
     [Tooltip("Si le dialogue se lance en entrant dans le trigger ou si il faut appuyer sur la touche de dialogue")]
     [SerializeField]
-    private bool isTrigger;
+    private bool isTrigger = default;
 
     //Indique que le dialogue a déjà été vu pour ne pas le relancer
     private bool wasTriggeredOnce;
@@ -25,7 +25,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private Transform questObjectNeeded;
 
     //Le dialogue de récompense de quête
-    [SerializeField] private DialogueText[] questRewardDialogue;
+    [SerializeField] private DialogueText[] questRewardDialogue = default;
 
     private void Start()
     {
@@ -93,12 +93,15 @@ public class DialogueTrigger : MonoBehaviour
         }
 
         //Si l'objet demandé par la quête entre dans la triggerBox
-        if (other.transform.name == questObjectNeeded.transform.name)
+        if (questObjectNeeded != null)
         {
-            Debug.Log("Quest");
-            questIsCompleted = true;    //La quête est complétée
-            Destroy(other);             //On détruit l'objet demandé
-            questObjectNeeded = null;   //On enlève la référence de l'objet
+            if (other.transform.name == questObjectNeeded.transform.name)
+            {
+                Debug.Log("Quest");
+                questIsCompleted = true;    //La quête est complétée
+                Destroy(other);             //On détruit l'objet demandé
+                questObjectNeeded = null;   //On enlève la référence de l'objet
+            }
         }
     }
 

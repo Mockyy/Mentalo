@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TriggerChest : NextLevel
+//Gère l'event du coffre dans le niveau 1
+public class Lvl1_Chest : NextLevel
 {
     private void OnTriggerEnter(Collider other)
     {

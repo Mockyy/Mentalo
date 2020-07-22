@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenDoor : MonoBehaviour
+//Gère l'event de l'ouverture de porte dans le tutoriel
+public class Tutorial_Door : MonoBehaviour
 {
-    [SerializeField] DialogueTrigger quest;
+    [SerializeField] DialogueTrigger quest = default;
 
     // Update is called once per frame
     void Update()

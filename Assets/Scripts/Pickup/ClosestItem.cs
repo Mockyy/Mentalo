@@ -6,15 +6,15 @@ using UnityEngine;
 public class ClosestItem : MonoBehaviour
 {
     [Header("Closest Item")]
-    [Tooltip("The tag associated with the wanted gameObjects")]
+    [Tooltip("Le tag ascocié au GameObjects voulus")]
     [SerializeField]
     protected string wantedTag; //Le tag des objets que l'on cherche
 
-    [Tooltip("Base distance at which the objects are scanned")]
+    [Tooltip("Distance à laquelle les objets sont repérés")]
     [SerializeField]
     protected float distance = 5f;  //La distance maximale à laquelle les objets sont repérés
 
-    [Tooltip("Debugging : show the lines between all the objects")]
+    [Tooltip("Debugging : Montre les lignes entre les objets et le personnage")]
     [SerializeField]
     protected bool showLines = false;   //Debug : Affiche les lignes entre cet objet et les objets repérés
     

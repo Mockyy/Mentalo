@@ -8,18 +8,18 @@ public class DialogueManager : MonoBehaviour
 {
     [Tooltip("Le textRenderer qui affiche le nom de la personne qui parle")]
     [SerializeField]
-    private TextMeshProUGUI nameText;
+    private TextMeshProUGUI nameText = default;
 
     [Tooltip("Le textRenderer qui affiche ce que dit la personne qui parle")]
     [SerializeField]    
-    private TextMeshProUGUI sentenceText; 
+    private TextMeshProUGUI sentenceText = default; 
 
     public Queue<string> sentences;    //Les phrases à afficher
     public Queue<DialogueText> dialogues;
 
     [Tooltip("L'animation de la boite de dialogue")]
     [SerializeField]
-    private Animator animator;
+    private Animator animator = default;
 
     public bool isDialogueOnGoing = false;  //Si un dialogue est en cours
 
